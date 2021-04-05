@@ -1,0 +1,344 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.print.css')}}"  rel="stylesheet">
+
+
+{% endblock %}
+
+{% block body %}
+
+
+    <section class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <br />
+                                <!-- sidebar menu -->
+                                <ul id="Submenu"><h6>Bonjour</h6><h2>{{ app.user.email }}</h2>
+                                    <HR>
+                                    <li><a href="{{ path('user_dashboard') }}" class="menu">Dashboard</a></li>
+                                    <li><a href="{{ path('user_calendar') }}"  class="menu">Calendrier</a></li>
+                                    <li><a href="{{ path('contact_index') }}"  class="menu">Liste de contacts</a></li>
+                                    <HR>
+                                    <li><a href="{{ path('user_profile') }}"  class="menu">Profile</a></li>
+                                    <li><a href="{{ path('app_login') }}"  class="menu">Login</a></li>
+                                    <li><a href="{{ path('app_login') }}"  class="menu">S'inscrire</a></li>
+                                    <li><a href="{{ path('app_logout') }}"  class="menu">Déconnexion</a></li>
+                                </ul>
+                                <!-- /sidebar menu -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="row" style="display: inline-block;">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>DASHBOARD</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="x_content">
+                                            <div class=" list_contact col-md-2 col-sm-12 ">
+                                                <div class="x_panel">
+                                                    <div>
+                                                        <div class="x_title">
+                                                            <h2>CONTACT LIST</h2>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <ul class="list-unstyled top_profiles scroll-view">
+                                                            <li class="media event">
+                                                                <a class="pull-left border-aero profile_thumb">
+                                                                    <i class="fa fa-user aero"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>client</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-blue profile_thumb">
+                                                                    <i class="fa fa-user blue"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-aero profile_thumb">
+                                                                    <i class="fa fa-user aero"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>prestataire</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-green profile_thumb">
+                                                                    <i class="fa fa-user green"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-green profile_thumb">
+                                                                    <i class="fa fa-user green"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-green profile_thumb">
+                                                                    <i class="fa fa-user green"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-green profile_thumb">
+                                                                    <i class="fa fa-user green"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8" >
+                                                <div class="x_panel">
+                                                    <div class="x_title">
+                                                        <h2>Calendrier</h2>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div  class="x_content">
+                                                        <div id='calendar'></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=" list_contact col-md-2 col-sm-12 ">
+                                                <div class="x_panel">
+                                                    <div>
+                                                        <div class="x_title">
+                                                            <h2>CONTACT LIST</h2>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <ul class="list-unstyled top_profiles scroll-view">
+                                                            <li class="media event">
+                                                                <a class="pull-left border-aero profile_thumb">
+                                                                    <i class="fa fa-user aero"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>client</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-blue profile_thumb">
+                                                                    <i class="fa fa-user blue"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-aero profile_thumb">
+                                                                    <i class="fa fa-user aero"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>prestataire</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-green profile_thumb">
+                                                                    <i class="fa fa-user green"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-green profile_thumb">
+                                                                    <i class="fa fa-user green"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-green profile_thumb">
+                                                                    <i class="fa fa-user green"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media event">
+                                                                <a class="pull-left border-green profile_thumb">
+                                                                    <i class="fa fa-user green"></i>
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <a class="title" href="#">Ms. Mary Jane</a>
+                                                                    <p><strong>07.78.09.43.87. </strong></p>
+                                                                    <p> <small>fournisseur</small>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /page content -->
+                </div>
+            </div>
+
+            <!-- calendar modal -->
+            <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="testmodal" style="padding: 5px 20px;">
+                                <form id="antoform" class="form-horizontal calender" role="form">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Titre</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="title" name="title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Description</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary antosubmit">Sauvegarder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
+            <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
+
+
+
+        </div>
+
+    </section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- FastClick -->
+    <script src="{{ asset('assets/vendors/fastclick/lib/fastclick.js') }}"></script>
+    <!-- NProgress -->
+    <script src="{{ asset('assets/vendors/nprogress/nprogress.js') }}"></script>
+    <!-- Chart.js -->
+    <script src="{{ asset('assets/vendors/Chart.js/dist/Chart.min.js') }}"></script>
+    <!-- jQuery Sparklines -->
+    <script src="{{ asset('assets/vendors/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
+    <!-- Flot -->
+    <script src="{{ asset('assets/vendors/Flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('assets/vendors/Flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('assets/vendors/Flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('assets/vendors/Flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('assets/vendors/Flot/jquery.flot.resize.js') }}"></script>
+    <!-- Flot plugins -->
+    <script src="{{ asset('assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+    <script src="{{ asset('assets/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/flot.curvedlines/curvedLines.js') }}"></script>
+    <!-- DateJS -->
+    <script src="{{ asset('assets/vendors/DateJS/build/date.js') }}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+    <!-- FullCalendar -->
+    <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('assets/build/js/custom.js') }}">  </script>
+    <script>
+        init_calendar({{ events|raw }})
+    </script>
+{% endblock %}
+

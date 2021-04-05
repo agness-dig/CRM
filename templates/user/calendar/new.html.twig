@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un événement{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.print.css')}}"  rel="stylesheet">
+
+    <style>
+        #formular {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+
+    <section class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <br />
+                                <!-- sidebar menu -->
+                                <ul id="Submenu"><h6>Bonjour</h6><h2>{{ app.user.email }}</h2>
+                                    <HR>
+                                    <li><a href="{{ path('user_dashboard') }}" class="menu">Dashboard</a></li>
+                                    <li><a href="{{ path('user_calendar') }}"  class="menu">Calendrier</a></li>
+                                    <li><a href="{{ path('contact_index') }}"  class="menu">Liste de contacts</a></li>
+                                    <HR>
+                                    <li><a href="{{ path('user_profile') }}"  class="menu">Profile</a></li>
+                                    <li><a href="{{ path('app_login') }}"  class="menu">Login</a></li>
+                                    <li><a href="{{ path('app_login') }}"  class="menu">S'inscrire</a></li>
+                                    <li><a href="{{ path('app_logout') }}"  class="menu">Déconnexion</a></li>
+                                </ul>
+                                <!-- /sidebar menu -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Création d'un nouvel événement</h3>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="row" id="formular">
+                            <div class="col-md-12 col-sm-12 ">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                    </div>
+                                    <div class="x_content">
+                                        {{ form_start(form) }}
+                                        {{ form_row(form.title) }}
+                                        {{ form_row(form.start) }}
+                                        {{ form_row(form.end) }}
+                                        {{ form_row(form.allday) }}
+                                        {{ form_row(form.description) }}
+                                        <div class="ln_solid"></div>
+                                        <div class="item form-group">
+                                            <div class="col-md-6 col-sm-6 offset-md-3">
+                                                <button type="submit" class="btn btn-success">Sauvegarder</button>
+                                                <p> ou Revenir au <a href="{{ path('user_calendar') }}">Calendrier</a></p>
+                                            </div>
+                                        </div>
+                                        {{ form_end(form) }}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="{{ asset('assets/build/js/custom.js') }}">  </script>
+
+{% endblock %}
+

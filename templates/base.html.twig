@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap -->
+        <link href="{{ asset('assets/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet"/>
+        <!-- Font Awesome -->
+        <link href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"/>
+        <!-- NProgress -->
+        <link href="{{ asset('assets/vendors/nprogress/nprogress.css') }}" rel="stylesheet" />
+        <!-- Animate.css -->
+        <link href="{{ asset('assets/vendors/animate.css/animate.min.css') }}" rel="stylesheet" />
+        <!-- Custom Theme Style -->
+        <link href="{{ asset('assets/build/css/custom.min.css')}}" rel="stylesheet" />
+
+        <title>{% block title %}Page d'accueil{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+        <!-- /calendar modal -->
+        <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/build/js/custom.js') }}">  </script>
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+
+    </body>
+    <!-- footer content -->
+    {       <footer>
+                <div class="pull-right">
+                    <!-- footer content -->
+                    <p>Copyright © 2021</p>
+                    <p>Politiques de confidentialités</p>
+                    <p>Mentions légales</p>
+                    <!-- /footer content -->
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+    <!-- /footer content -->
+</html>
