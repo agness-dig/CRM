@@ -63,87 +63,22 @@
                                                 <div class="x_panel">
                                                     <div>
                                                         <div class="x_title">
-                                                            <h2>CONTACT LIST</h2>
+                                                            <h2>Les événements</h2>
                                                             <div class="clearfix"></div>
                                                         </div>
                                                         <ul class="list-unstyled top_profiles scroll-view">
-                                                            <li class="media event">
-                                                                <a class="pull-left border-aero profile_thumb">
-                                                                    <i class="fa fa-user aero"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>client</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-blue profile_thumb">
-                                                                    <i class="fa fa-user blue"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-aero profile_thumb">
-                                                                    <i class="fa fa-user aero"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>prestataire</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-green profile_thumb">
-                                                                    <i class="fa fa-user green"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-green profile_thumb">
-                                                                    <i class="fa fa-user green"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-green profile_thumb">
-                                                                    <i class="fa fa-user green"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-green profile_thumb">
-                                                                    <i class="fa fa-user green"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
+                                                            {% for event in events %}
+                                                                <li class="media event">
+                                                                    <div class="media-body">
+
+                                                                        <p> {{ event.title }} </p>
+                                                                        <form action="{{ path('calendar_delete',{id:event.id}) }}" id="antodeleteform" method="post" onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cet élément?');">
+                                                                            <input type="hidden" name="_delete">
+                                                                            <button type="submit" class="btn btn-danger" >Supprimer</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </li>
+                                                            {% endfor %}
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -163,87 +98,26 @@
                                                 <div class="x_panel">
                                                     <div>
                                                         <div class="x_title">
-                                                            <h2>CONTACT LIST</h2>
+                                                            <h2>Nouveaux contacts</h2>
                                                             <div class="clearfix"></div>
+
                                                         </div>
                                                         <ul class="list-unstyled top_profiles scroll-view">
+                                                            {% for contact in contacts %}
                                                             <li class="media event">
+
                                                                 <a class="pull-left border-aero profile_thumb">
                                                                     <i class="fa fa-user aero"></i>
                                                                 </a>
                                                                 <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>client</small>
+                                                                    <a class="title" href="#">{{ contact.name }}</a>
+                                                                    <p><strong>{{ contact.phoneNbr }}</strong></p>
+{#                                                                    <p> <small>{{ contact.category }}</small>#}
                                                                     </p>
                                                                 </div>
+
                                                             </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-blue profile_thumb">
-                                                                    <i class="fa fa-user blue"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-aero profile_thumb">
-                                                                    <i class="fa fa-user aero"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>prestataire</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-green profile_thumb">
-                                                                    <i class="fa fa-user green"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-green profile_thumb">
-                                                                    <i class="fa fa-user green"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-green profile_thumb">
-                                                                    <i class="fa fa-user green"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="media event">
-                                                                <a class="pull-left border-green profile_thumb">
-                                                                    <i class="fa fa-user green"></i>
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <a class="title" href="#">Ms. Mary Jane</a>
-                                                                    <p><strong>07.78.09.43.87. </strong></p>
-                                                                    <p> <small>fournisseur</small>
-                                                                    </p>
-                                                                </div>
-                                                            </li>
+                                                            {% endfor %}
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -338,7 +212,7 @@
     <script src="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('assets/build/js/custom.js') }}">  </script>
     <script>
-        init_calendar({{ events|raw }})
+        init_calendar({{ events_j|raw }})
     </script>
 {% endblock %}
 

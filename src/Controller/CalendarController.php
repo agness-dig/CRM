@@ -18,10 +18,12 @@ class CalendarController extends AbstractController
      */
     public function index(): Response
     {
+
         //entity manager
         $em = $this->getDoctrine()->getManager();
         $calendarRepository = $em->getRepository(Calendar::class);
-        $events = $calendarRepository->findAll();
+        //importante
+        $events = $calendarRepository->findAllByUser($this->getUser()->getId());
 
         $calendar_json = [];
         foreach ($events as $event) {
@@ -45,12 +47,14 @@ class CalendarController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
         $calendar = new Calendar();
         $form = $this->createForm(CalendarType::class, $calendar);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $calendar->setUser($this->getUser());
             $entityManager->persist($calendar);
             $entityManager->flush();
 
@@ -73,13 +77,34 @@ class CalendarController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $calendarRepository = $em->getRepository(Calendar::class);
+
+        /** @var Calendar $calendar */
         $calendar = $calendarRepository->find($id);
 
-        $formular_js = $request->getContent() ;
-        dd($formular_js);
-
         if ($request->getMethod() == "POST") {
-            //update calendar
+            //title
+            if ($request->request->get('title2')) {
+                $calendar->setTitle($request->request->get('title2'));
+            }
+
+            //start
+            if ($request->request->get('start')) {
+                $calendar->setStart(new \DateTime($request->request->get('start')." ".$request->request->get('start_time')));
+            }
+
+
+            //end
+
+            if ($request->request->get('end')) {
+                $calendar->setEnd(new \DateTime($request->request->get('end')." ".$request->request->get('end_time')));
+            }
+
+            //description
+            if ($request->request->get('descr')) {
+                $calendar->setDescription($request->request->get('descr'));
+            }
+           // dd($request->request);
+
             //$calendar
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($calendar);
@@ -90,5 +115,21 @@ class CalendarController extends AbstractController
 
     }
 
+    /**
+     * @Route("/user/calendar/delete/{id}", name="calendar_delete", methods={"POST"})
+     * @param Request $request
+     * @param Calendar $calendar
+     * @return Response
+     */
+    public function delete(Request $request, Calendar $calendar): Response
+    {
+        if ($request->getMethod()=="POST" && $calendar) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($calendar);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('user_dashboard');
+    }
 
 }

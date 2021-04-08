@@ -28,21 +28,24 @@ class Contact
     private $firstName;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $phoneNbr;
-
-    /**
      * @ORM\Column(type="string", length=150)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=150)
+     * @ORM\Column(type="string", length=20)
      */
-    private $relationType;
+    private $phoneNbr;
 
-
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="yes")
+     */
+    private $category;
+//
+//    /**
+//     * @ORM\Column(type="string", length=150)
+//     */
+//    private $relationType;
 
     public function getId(): ?int
     {
@@ -73,18 +76,6 @@ class Contact
         return $this;
     }
 
-    public function getPhoneNbr(): ?int
-    {
-        return $this->phoneNbr;
-    }
-
-    public function setPhoneNbr(int $phoneNbr): self
-    {
-        $this->phoneNbr = $phoneNbr;
-
-        return $this;
-    }
-
     public function getEmail(): ?string
     {
         return $this->email;
@@ -97,17 +88,28 @@ class Contact
         return $this;
     }
 
-    public function getRelationType(): ?string
+    public function getPhoneNbr(): ?string
     {
-        return $this->relationType;
+        return $this->phoneNbr;
     }
 
-    public function setRelationType(string $relationType): self
+    public function setPhoneNbr(string $phoneNbr): self
     {
-        $this->relationType = $relationType;
+        $this->phoneNbr = $phoneNbr;
 
         return $this;
     }
 
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
 
 }

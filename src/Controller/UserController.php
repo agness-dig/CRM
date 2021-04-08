@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Calendar;
+use App\Entity\Contact;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -42,21 +44,34 @@ class UserController extends AbstractController
      */
     public function dashboard(): Response
     {
-        $events = [];
-        $events [] = [
-            'id'=>1,
-            'start'=> (new \DateTime('now'))->format('Y-m-d H:i'),
-            'end'=> (new \DateTime('now'))->format('Y-m-d H:i'),
-            'backgroundColor'=>'#0000F5',
-            'textColor'=>'#FFFFFF',
-            'description'=>"Mon événement"
-        ];
+        //entity manager
+        $em = $this->getDoctrine()->getManager();
+        $calendarRepository = $em->getRepository(Calendar::class);
+        //seul events de cet utilisateur
+        $events = $calendarRepository->findAllByUser($this->getUser()->getId());
+        $contactsRepository = $em->getRepository(Contact::class);
+        $contacts =$contactsRepository->findAll();
+        $calendar_json = [];
+        foreach ($events as $event) {
+            $calendar_json [] = [
+                'id'=>$event->getId(),
+                'title'=>$event->getTitle(),
+                'start'=>$event->getStart()->format('Y-m-d H:i'),
+                'end'=>$event->getEnd()->format('Y-m-d H:i'),
+                'description'=>$event->getDescription()
+            ];
+        }
+
         return $this->render('user/dashboard.html.twig',
-        [
-            'events'=>json_encode($events)
-        ]
+            [
+                'events_j'=>json_encode($calendar_json),
+                'events'=>$events,
+                'contacts'=>$contacts
+            ]
         );
     }
+
+
 
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})

@@ -77,18 +77,21 @@
                     <div class="modal-body">
                         <div id="testmodal" style="padding: 5px 20px;">
                             <form id="antoform" class="form-horizontal calender" role="form">
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Titre</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="title" name="title">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Description</label>
                                     <div class="col-sm-9">
                                         <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
                                     </div>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -102,7 +105,7 @@
         <div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header flex flex-row-reverse">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h4 class="modal-title" id="myModalLabel2">Editer</h4>
                     </div>
@@ -110,23 +113,63 @@
                         <div id="testmodal2" style="padding: 5px 20px;">
                             <!--ADD NEW EVENT-->
                             <form id="antoform2" class="form-horizontal calender" role="form" method="post">
+
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Title</label>
+                                    <label class="col-sm-3 control-label">Titre</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="title2" name="title2">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Debut</label>
+                                    <div class="col-sm-9">
+                                        <input type="date" class="form-control" id="start" name="start">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Heure</label>
+                                    <div class="col-sm-9">
+                                        <input type="time" class="form-control" id="start_time" name="start_time">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Fin</label>
+                                    <div class="col-sm-9">
+                                        <input type="date" class="form-control" id="end" name="end">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Heure</label>
+                                    <div class="col-sm-9">
+                                        <input type="time" class="form-control" id="end_time" name="end_time">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">La journée</label>
+                                    <div class="col-sm-9 ">
+                                        <input type="checkbox" class="form-control " id="allday" name="allday">
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Description</label>
                                     <div class="col-sm-9">
                                         <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
                                     </div>
                                 </div>
+
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary antosubmit2">Save changes</button>
+                                    <button type="button" class="btn btn-warning antoclose2" data-dismiss="modal">Fermer</button>
+                                    <button type="submit" class="btn btn-primary antosubmit2">Sauvegarder</button>
                                 </div>
+
                             </form>
+
                         </div>
                     </div>
 

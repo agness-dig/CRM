@@ -2432,9 +2432,27 @@ function init_calendar(events) {
             $('#fc_edit').click();
             $('#title2').val(calEvent.title);
             $('#descr2').val(calEvent.description);
+            console.log(calEvent.allday)
+            $('#allday').attr("checked","checked");
+
+            $start_date = calEvent.start._i.split(' ')[0] ;
+            $start_time = calEvent.start._i.split(' ')[1];
+            $('#start').val($start_date);
+            $('#start_time').val($start_time);
+
+            $end_date = calEvent.end._i.split(' ')[0] ;
+            $end_time = calEvent.end._i.split(' ')[1];
+            $('#end').val($end_date);
+            $('#end_time').val($end_time);
+
             let form = $('#antoform2');
             form.attr("action","/user/calendar/edit/" + calEvent.id);
             categoryClass = $("#event_type").val();
+
+            //Delete form
+            let deleteform = $('#antodeleteform');
+            deleteform.attr("action","/user/calendar/"+calEvent.id +"/delete");
+
 
             // $(".antosubmit2").on("click", function () {
             //     calEvent.title = $("#title2").val();

@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Calendar;
+use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Calendar|null find($id, $lockMode = null, $lockVersion = null)
- * @method Calendar|null findOneBy(array $criteria, array $orderBy = null)
- * @method Calendar[]    findAll()
- * @method Calendar[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Category|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Category|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Category[]    findAll()
+ * @method Category[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CalendarRepository extends ServiceEntityRepository
+class CategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Calendar::class);
+        parent::__construct($registry, Category::class);
     }
 
     // /**
-    //  * @return Calendar[] Returns an array of Calendar objects
+    //  * @return Category[] Returns an array of Category objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class CalendarRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Calendar
+    public function findOneBySomeField($value): ?Category
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
@@ -47,13 +47,4 @@ class CalendarRepository extends ServiceEntityRepository
         ;
     }
     */
-
-    public function findAllByUser(int $user_id) {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.user = :user_id')
-            ->setParameter('user_id', $user_id)
-            ->getQuery()->getResult()
-            ;
-    }
 }
-

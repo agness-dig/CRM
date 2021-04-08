@@ -55,7 +55,7 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-md-12 col-sm-12  ">
-                            <a href="contact_create.html" class=" add_list btn btn-info"></i>Ajouter un contact</a>
+                            <a href="{{ path('contact_new') }}" class=" add_list btn btn-info"></i>Ajouter un contact</a>
                             <div class="clearfix"></div>
                             <div class="x_panel">
                                 <div class="x_content">
@@ -64,12 +64,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>Id</th>
-                                                    <th>Name</th>
-                                                    <th>FirstName</th>
-                                                    <th>PhoneNbr</th>
+                                                    <th>Nom</th>
+                                                    <th>Prénom</th>
+                                                    <th>Téléphone</th>
                                                     <th>Email</th>
-                                                    <th>RelationType</th>
-                                                    <th>actions</th>
+                                                    <th>Catégorie</th>
+                                                    <th>Actions</th>
                                                 </tr>
                                             </thead>
 
@@ -82,9 +82,12 @@
                                                     <td>{{ contact.firstName }}</td>
                                                     <td>{{ contact.phoneNbr }}</td>
                                                     <td>{{ contact.email }}</td>
-                                                    <td>{{ contact.relationType }}</td>
-                                                    <td><a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-info">show</a></td>
-                                                    <td><a href="{{ path('contact_edit', {'id': contact.id}) }}" class="btn btn-info">edit</a></td>
+                                                    <td>{{ contact.category.category }}</td>
+                                                    <td>
+                                                        <a href="{{ path('contact_edit', {'id': contact.id}) }}" class="btn btn-info">editer</a>
+                                                        <a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-danger">supprimer</a>
+                                                    </td>
+
                                                 </tr>
                                             {% else %}
                                                 <tr>

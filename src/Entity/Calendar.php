@@ -42,6 +42,12 @@ class Calendar
      */
     private $allday;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="calendars")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,7 +82,6 @@ class Calendar
         $this->description = $description;
         return $this;
     }
-
 
 
     /**
@@ -123,6 +128,18 @@ class Calendar
     public function setAllday(?bool $allday): self
     {
         $this->allday = $allday;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
