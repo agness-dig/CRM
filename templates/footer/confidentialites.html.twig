@@ -1,17 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Contact{% endblock %}
-
 {% block body %}
-
-
-
-
-
-
-
-
-
 
     <section class="nav-md">
         <div class="container body">
@@ -40,14 +29,16 @@
                                 <!-- /sidebar menu -->
                             </div>
                         </div>
+
                     </div>
                 </div>
+
                 <!-- page content -->
                 <div class="right_col" role="main">
                     <div class="">
                         <div class="page-title">
                             <div class="title_left">
-                                <h3>Créer un nouveau contact</h3>
+                                <h3>Politiques de confidentialités</h3>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -56,19 +47,7 @@
                             <div class="x_panel">
                                 <div class="x_content">
                                     <div class="col-md-8">
-                                        <div class="card mb-3">
-                                            <div class="card-body">
-                                                <div class="right_col" role="main">
-                                                    <div class="row">
-                                                        <div class="col-sm-8">
-                                                            {{ include('contact/_form.html.twig') }}
-                                                        </div>
-                                                    </div>
-                                                    <a href="{{ path('contact_index') }}">Retourner au dashboard</a>
-                                                </div>
-                                                <hr>
-                                            </div>
-                                        </div>
+                                        <p></p>
                                     </div>
                                 </div>
                             </div>
@@ -77,11 +56,11 @@
                 </div>
                 <!-- /page content -->
             </div>
+
+
         </div>
 
     </section>
-
-
 
 
 {% endblock %}

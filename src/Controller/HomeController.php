@@ -21,5 +21,22 @@ class HomeController extends AbstractController
     }
 
 
+    /**
+     * @Route("/mention", name="mention", methods={"GET"})
+     */
+    public function mention(): Response
+    {
+        return $this->render("footer/mentions.html.twig");
+    }
+
+
+
+    /**
+     * @Route("/confidentialite", name="confidentialite", methods={"GET"})
+     */
+    public function confidentialite(): Response
+    {
+        return $this->render("footer/confidentialites.html.twig");
+    }
 
 }
