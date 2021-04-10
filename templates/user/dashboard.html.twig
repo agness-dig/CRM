@@ -27,6 +27,7 @@
                             <div class="menu_section">
                                 <br />
                                 <!-- sidebar menu -->
+                                <img src="assets/build/images/logo.jpg">
                                 <ul id="Submenu"><h6>Bonjour</h6><h2>{{ app.user.email }}</h2>
                                     <HR>
                                     <li><a href="{{ path('user_dashboard') }}" class="menu">Dashboard</a></li>
@@ -209,12 +210,12 @@
     <script src="{{ asset('assets/vendors/DateJS/build/date.js') }}"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+{#    <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>#}
     <script src="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+{#    <script src="{{ asset('assets/vendors/fullcalendar/dist/lang/fr.js') }}"></script>#}
     <!-- FullCalendar -->
-    <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('assets/build/js/custom.js') }}">  </script>
+
     <script>
         init_calendar({{ events_j|raw }})
     </script>

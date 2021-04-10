@@ -16,10 +16,6 @@ class UserType extends AbstractType
             ->add('name')
             ->add('lastname')
             ->add('email')
-            ->add('birthday', DateTimeType::class,[
-                'label' => false,
-                'date_widget'=>'single_text'
-            ])
             ->add('phone')
             ->add('address')
         ;

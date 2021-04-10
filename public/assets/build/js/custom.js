@@ -2387,6 +2387,8 @@ function init_calendar(events) {
 
     var calendar = $('#calendar').fullCalendar({
         locale: 'fr',
+        buttonText : true,
+        headerToolbar: true,
         header: {
             left: 'prev,next today',
             center: 'title',
