@@ -13,83 +13,45 @@
 
 {% block body %}
 
-
-    <section class="nav-md">
-        <div class="container body">
-            <div class="main_container">
-                <div class="col-md-3 left_col">
-                    <div class="left_col scroll-view">
-                        <div class="clearfix"></div>
-                        <br />
-
-                        <!-- sidebar menu -->
-                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                            <div class="menu_section">
-                                <br />
-                                <!-- sidebar menu -->
-                                <ul id="Submenu"><h6>Bonjour</h6><h2>{{ app.user.email }}</h2>
-                                    <HR>
-                                    <li><a href="{{ path('user_dashboard') }}" class="menu">Dashboard</a></li>
-                                    <li><a href="{{ path('user_calendar') }}"  class="menu">Calendrier</a></li>
-                                    <li><a href="{{ path('contact_index') }}"  class="menu">Liste de contacts</a></li>
-                                    <HR>
-                                    <li><a href="{{ path('user_profile') }}"  class="menu">Profile</a></li>
-                                    <li><a href="{{ path('app_logout') }}"  class="menu">Déconnexion</a></li>
-                                </ul>
-                                <!-- /sidebar menu -->
-                            </div>
-                        </div>
-
-                    </div>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Edition du Profile</h3>
                 </div>
-
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="page-title">
-                            <div class="title_left">
-                                <h3>Edition du Profile</h3>
-                            </div>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                        <div class="row">
-                            <div class="col-md-8 col-sm-8 ">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                    </div>
-                                    <div class="x_content">
-                                        {{ form_start(form) }}
-                                            {{ form_row(form.name) }}
-                                            {{ form_row(form.lastname) }}
-                                            {{ form_row(form.email) }}
-                                            {{ form_row(form.phone) }}
-                                            {{ form_row(form.address) }}
-                                        <div class="ln_solid"></div>
-                                        <div class="item form-group">
-                                            <div class="col-md-6 col-sm-6">
-                                                <button type="submit" class="btn btn-success">Sauvegarder</button>
-                                                <p> ou Revenir au <a href="profile.html">Profile</a></p>
-                                            </div>
-                                        </div>
-                                        {{ form_end(form) }}
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
 
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-8 col-sm-8 ">
+                    <div class="x_panel">
+                        <div class="x_title">
+                        </div>
+                        <div class="x_content">
+                            {{ form_start(form) }}
+                                {{ form_row(form.name) }}
+                                {{ form_row(form.lastname) }}
+                                {{ form_row(form.email) }}
+                                {{ form_row(form.phone) }}
+                                {{ form_row(form.address) }}
+                            <div class="ln_solid"></div>
+                            <div class="item form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    <button type="submit" class="btn btn-success">Sauvegarder</button>
+                                    <p> ou Revenir au <a href="profile.html">Profile</a></p>
+                                </div>
+                            </div>
+                            {{ form_end(form) }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
-
-    </section>
-
+    </div>
 
 {% endblock %}
 

@@ -4,121 +4,75 @@
 
 {% block body %}
 
-
-    <section class="nav-md">
-        <div class="container body">
-            <div class="main_container">
-                <div class="col-md-3 left_col">
-                    <div class="left_col scroll-view">
-                        <div class="clearfix"></div>
-
-                        <!-- sidebar menu -->
-                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                            <div class="menu_section">
-                                <br />
-                                <!-- sidebar menu -->
-                                <ul id="Submenu"><h6>Bonjour</h6><h2>{{ app.user.email }}</h2>
-                                    <HR>
-                                    <li><a href="{{ path('user_dashboard') }}" class="menu">Dashboard</a></li>
-                                    <li><a href="{{ path('user_calendar') }}"  class="menu">Calendrier</a></li>
-                                    <li><a href="{{ path('contact_index') }}"  class="menu">Liste de contacts</a></li>
-                                    <HR>
-                                    <li><a href="{{ path('user_profile') }}"  class="menu">Profile</a></li>
-                                    <li><a href="{{ path('app_logout') }}"  class="menu">Déconnexion</a></li>
-                                </ul>
-                                <!-- /sidebar menu -->
-                            </div>
-                        </div>
-
-                    </div>
-
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3><small></small>Gestion des</small> Contacts</h3>
                 </div>
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="page-title">
-                            <div class="title_left">
-                                <h3><small></small>Gestion des</small> Contacts</h3>
-                            </div>
-                            <div class="title_right">
-                                <div class="col-md-5 col-sm-5   form-group pull-right top_search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Rechercher un contact...">
-                                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">Recherche</button>
-                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-12 col-sm-12  ">
-                            <a href="{{ path('contact_new') }}" class=" add_list btn btn-info"></i>Ajouter un contact</a>
-                            <div class="clearfix"></div>
-                            <div class="x_panel">
-                                <div class="x_content">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped jambo_table bulk_action">
-                                            <thead>
-                                                <tr>
-                                                    <th>Id</th>
-                                                    <th>Nom</th>
-                                                    <th>Prénom</th>
-                                                    <th>Téléphone</th>
-                                                    <th>Email</th>
-                                                    <th>Catégorie</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-
-                                            {% for contact in contacts %}
-                                                <tr>
-                                                    <td>{{ contact.id }}</td>
-                                                    <td>{{ contact.name }}</td>
-                                                    <td>{{ contact.firstName }}</td>
-                                                    <td>{{ contact.phoneNbr }}</td>
-                                                    <td>{{ contact.email }}</td>
-                                                    <td>{{ contact.category.category }}</td>
-                                                    <td>
-                                                        <a href="{{ path('contact_edit', {'id': contact.id}) }}" class="btn btn-info">editer</a>
-                                                        <a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-danger">supprimer</a>
-                                                    </td>
-
-                                                </tr>
-                                            {% else %}
-                                                <tr>
-                                                    <td colspan="7">Aucun enregistrement trouvé</td>
-                                                </tr>
-                                            {% endfor %}
-
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Rechercher un contact...">
+                            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Recherche</button>
+            </span>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /page content -->
-
-            <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    <!-- footer content -->
-                    <p>Copyright © 2021</p>
-                    <!-- /footer content -->
-                </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12 col-sm-12  ">
+                <a href="{{ path('contact_new') }}" class=" add_list btn btn-info"></i>Ajouter un contact</a>
                 <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
-        </div>
-        </div>
+                <div class="x_panel">
+                    <div class="x_content">
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Téléphone</th>
+                                        <th>Email</th>
+                                        <th>Catégorie</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
 
-    </section>
+                                <tbody>
+
+                                {% for contact in contacts %}
+                                    <tr>
+                                        <td>{{ contact.id }}</td>
+                                        <td>{{ contact.name }}</td>
+                                        <td>{{ contact.firstName }}</td>
+                                        <td>{{ contact.phoneNbr }}</td>
+                                        <td>{{ contact.email }}</td>
+                                        <td>{{ contact.category.category }}</td>
+                                        <td>
+                                            <a href="{{ path('contact_edit', {'id': contact.id}) }}" class="btn btn-info">editer</a>
+                                            <a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-danger">supprimer</a>
+                                        </td>
+
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="7">Aucun enregistrement trouvé</td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 

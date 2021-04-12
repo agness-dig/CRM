@@ -11,19 +11,16 @@
             </div>
         </div>
         <div class="clearfix"></div>
-        <div class="col-md-12 col-sm-12  ">
-            <div class="clearfix"></div>
-            <div class="x_panel">
-                <div class="x_content">
-                    <div class="col-md-12">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <div class="right_col" role="main">
-                                    <div class="row">
-                                        <div class="col-sm-8">
+
     <p>
         Un e-mail a été envoyé contenant un lien sur lequel vous pouvez cliquer pour réinitialiser votre mot de passe. Ce lien expirera dans 1 heure. {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
     </p>
-    <p>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou <a href="{{ path('app_forgot_password_request') }}"><u><span>réessayer</span></u></a>.</p>
-                                        </div>
+        <p>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou
+            <a href="{{ path('app_forgot_password_request') }}"><u><span>réessayer</span></u>
+            </a>
+        </p>
+
+        <a href="{{ path('app_login') }}" class="btn btn-secondary">Log in</a>
+
+    </div>
 {% endblock %}

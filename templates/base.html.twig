@@ -26,15 +26,66 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+
+            <style>
+                .logo {
+                    width: 50px;
+                    height: 50px;
+                    z-index: 3;
+                    margin: 0 auto;
+                }
+                .logo img {
+                    width: 100%;
+                    display: block;
+                }
+            </style>
         {% endblock %}
 
 
     </head>
+
     <body>
 
-        {% block body %}
+        <section class="nav-md">
+            <div class="container body">
+                <div class="main_container">
+                    <div class="col-md-3 left_col">
+                        <div class="left_col scroll-view">
+                            <div class="clearfix"></div>
+                            <br />
+                            {%  if app.user %}
 
-        {% endblock %}
+                                <!-- sidebar menu -->
+                                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                                    <div class="menu_section">
+                                        <br />
+                                        <div class="logo">
+                                            <img src="{{ asset('assets/build/images/logo.jpg') }}" alt="">
+                                        </div>
+                                        <!-- sidebar menu -->
+                                            <ul id="Submenu"><h6>Bonjour</h6><h2>{{ app.user.email }}</h2>
+                                                <HR>
+                                                <li><a href="{{ path('user_dashboard') }}" class="menu">Dashboard</a></li>
+                                                <li><a href="{{ path('user_calendar') }}"  class="menu">Calendrier</a></li>
+                                                <li><a href="{{ path('contact_index') }}"  class="menu">Liste de contacts</a></li>
+                                                <HR>
+                                                <li><a href="{{ path('user_profile') }}"  class="menu">Profile</a></li>
+
+                                                <li><a href="{{ path('app_logout') }}"  class="menu">Déconnexion</a></li>
+                                            </ul>
+                                    </div>
+                                </div>
+                                <!-- /sidebar menu -->
+                            {% endif %}
+                        </div>
+                    </div>
+
+
+                    {% block body %}{% endblock %}
+
+                </div>
+            </div>
+        </section>
 
         {% block footer %}<!-- footer content -->
         <footer>

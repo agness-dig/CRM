@@ -4,84 +4,39 @@
 
 {% block body %}
 
-
-
-
-
-
-
-
-
-
-    <section class="nav-md">
-        <div class="container body">
-            <div class="main_container">
-                <div class="col-md-3 left_col">
-                    <div class="left_col scroll-view">
-                        <div class="clearfix"></div>
-                        <br />
-
-                        <!-- sidebar menu -->
-                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                            <div class="menu_section">
-                                <br />
-                                <!-- sidebar menu -->
-                                <ul id="Submenu"><h6>Bonjour</h6><h2>{{ app.user.email }}</h2>
-                                    <HR>
-                                    <li><a href="{{ path('user_dashboard') }}" class="menu">Dashboard</a></li>
-                                    <li><a href="{{ path('user_calendar') }}"  class="menu">Calendrier</a></li>
-                                    <li><a href="{{ path('contact_index') }}"  class="menu">Liste de contacts</a></li>
-                                    <HR>
-                                    <li><a href="{{ path('user_profile') }}"  class="menu">Profile</a></li>
-                                    <li><a href="{{ path('app_login') }}"  class="menu">Login</a></li>
-                                    <li><a href="{{ path('app_login') }}"  class="menu">S'inscrire</a></li>
-                                    <li><a href="{{ path('app_logout') }}"  class="menu">Déconnexion</a></li>
-                                </ul>
-                                <!-- /sidebar menu -->
-                            </div>
-                        </div>
-                    </div>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Créer un nouveau contact</h3>
                 </div>
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="page-title">
-                            <div class="title_left">
-                                <h3>Créer un nouveau contact</h3>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-12 col-sm-12  ">
-                            <div class="clearfix"></div>
-                            <div class="x_panel">
-                                <div class="x_content">
-                                    <div class="col-md-8">
-                                        <div class="card mb-3">
-                                            <div class="card-body">
-                                                <div class="right_col" role="main">
-                                                    <div class="row">
-                                                        <div class="col-sm-8">
-                                                            {{ include('contact/_form.html.twig') }}
-                                                        </div>
-                                                    </div>
-                                                    <a href="{{ path('contact_index') }}">Retourner au dashboard</a>
-                                                </div>
-                                                <hr>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12 col-sm-12  ">
+                <div class="clearfix"></div>
+                <div class="x_panel">
+                    <div class="x_content">
+                        <div class="col-md-8">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="right_col" role="main">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                {{ include('contact/_form.html.twig') }}
                                             </div>
                                         </div>
+                                        <a href="{{ path('user_dashboard') }}">Retourner au dashboard</a>
                                     </div>
+                                    <hr>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /page content -->
             </div>
         </div>
-
-    </section>
-
-
-
+    </div>
+    <!-- /page content -->
 
 {% endblock %}
