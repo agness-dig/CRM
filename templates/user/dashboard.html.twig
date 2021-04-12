@@ -8,7 +8,16 @@
     <link href="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.print.css')}}"  rel="stylesheet">
 
-
+    <style>
+        .logo {
+            width: 60px;
+            height: 60px;
+        }
+        .logo img {
+            width: 100%;
+            display: block;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
@@ -27,7 +36,7 @@
                             <div class="menu_section">
                                 <br />
                                 <!-- sidebar menu -->
-                                <img src="assets/build/images/logo.jpg">
+
                                 <ul id="Submenu"><h6>Bonjour</h6><h2>{{ app.user.email }}</h2>
                                     <HR>
                                     <li><a href="{{ path('user_dashboard') }}" class="menu">Dashboard</a></li>
@@ -35,7 +44,6 @@
                                     <li><a href="{{ path('contact_index') }}"  class="menu">Liste de contacts</a></li>
                                     <HR>
                                     <li><a href="{{ path('user_profile') }}"  class="menu">Profile</a></li>
-
                                     <li><a href="{{ path('app_logout') }}"  class="menu">Déconnexion</a></li>
                                 </ul>
                                 <!-- /sidebar menu -->
@@ -61,7 +69,7 @@
                                         <div class="x_content">
 
 
-                                            <div class=" list_contact col-md-2 col-sm-12 ">
+                                            <div class=" list_contact col-md-3 col-sm-12 ">
                                                 <div class="x_panel">
                                                     <div>
                                                         <div class="x_title">
@@ -82,7 +90,6 @@
                                                                         {#                                                                    <p> <small>{{ contact.category }}</small>#}
                                                                         </p>
                                                                     </div>
-
                                                                 </li>
                                                             {% endfor %}
                                                         </ul>
@@ -90,7 +97,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-8" >
+                                            <div class="col-md-6" >
                                                 <div class="x_panel">
                                                     <div class="x_title">
                                                         <h2>Calendrier</h2>
@@ -101,7 +108,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class=" list_contact col-md-2 col-sm-12 ">
+                                            <div class=" list_contact col-md-3 col-sm-12 ">
                                                 <div class="x_panel">
                                                     <div>
                                                         <div class="x_title">
@@ -210,9 +217,9 @@
     <script src="{{ asset('assets/vendors/DateJS/build/date.js') }}"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script>
-{#    <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>#}
+    <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
     <script src="{{ asset('assets/vendors/fullcalendar/dist/fullcalendar.min.js') }}"></script>
-{#    <script src="{{ asset('assets/vendors/fullcalendar/dist/lang/fr.js') }}"></script>#}
+    <script src="{{ asset('assets/vendors/fullcalendar/dist/lang/fr.js') }}"></script>
     <!-- FullCalendar -->
     <script src="{{ asset('assets/build/js/custom.js') }}">  </script>
 

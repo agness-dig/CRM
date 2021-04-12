@@ -2386,6 +2386,7 @@ function init_calendar(events) {
         categoryClass;
 
     var calendar = $('#calendar').fullCalendar({
+        initialView: 'dayGridMonth',
         locale: 'fr',
         buttonText : true,
         headerToolbar: true,
