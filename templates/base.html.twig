@@ -19,6 +19,9 @@
         <link href="{{ asset('assets/build/css/custom.min.css')}}" rel="stylesheet" />
 
         <title>{% block title %}Page d'accueil{% endblock %}</title>
+
+
+
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -28,9 +31,11 @@
 
     </head>
     <body>
+
         {% block body %}
 
         {% endblock %}
+
         {% block footer %}<!-- footer content -->
         <footer>
             <div class="pull-right">
